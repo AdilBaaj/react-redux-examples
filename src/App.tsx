@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// Redux
+import { Provider } from 'react-redux';
+import configureStore, { history } from './configureStore'; 
+
+// Router
+import { Switch, Route } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
+
+// Components
+import Home from './components/Home';
+import ClassComponent from './components/Class/index';
+import FunctionalComponent from './components/Functional/Functional'
+
+const store = configureStore()  
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Switch>
+            <Route path="/functional-component">
+              <FunctionalComponent />
+            </Route>
+            <Route path="/class-component">
+              <ClassComponent />
+            </Route>
+            <Route component={Home} />
+          </Switch>
+      </ConnectedRouter>
+    </Provider>
   );
 }
 
