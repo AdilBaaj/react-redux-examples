@@ -20,3 +20,5 @@ export const initialState: stateI = { email: 'adil.baaj@nimbleways.com', usernam
 export const { updateUsername } = userSlice.actions;
 
 export default userSlice.reducer;
+
+export const selectUsername = (state: stateI):string => state.username;

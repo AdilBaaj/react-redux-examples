@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Functional Should render one div with correct props and one button with a handleclick 1`] = `ShallowWrapper {}`;
